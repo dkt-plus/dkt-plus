@@ -1,0 +1,207 @@
+@import '@dkt-plus/components/base/style/index.less';
+
+@input-border-color: #bedeef;
+@input-border-active-color: #0096e1;
+@input-border-active-color-light: mix(@input-border-active-color, @input-border-color, 30%);
+@input-placeholder-color: #b9b9b9;
+@input-border-color-light: mix(@primary-color-white, @input-border-color, 60%);
+@input-border-radius: 8px;
+@input-padding:1px 11px;
+@input-font-size: 16px;
+@input-font-size-small: 12px;
+@input-padding-large:1px 15px;
+@input-padding-small:1px 7px;
+@input-line-height: 30px;
+@input-line-height-small: 20px;
+@input-line-height-large: 40px;
+
+.dkt-input {
+  position: relative;
+  width: 100%;
+  font-family: @font-family;
+  height: @input-line-height;
+  line-height: @input-line-height;
+  display: inline-flex;
+  font-size: @input-font-size;
+  box-sizing: border-box;
+  &.dkt-input--prepend {
+    .dkt-input__wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &.dkt-input--append {
+    .dkt-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &.dkt-input--large {
+    height: @input-line-height-large;
+    line-height: @input-line-height-large;
+    .dkt-input__wrapper {
+      .dkt-input__inner {
+        line-height: calc(@input-line-height-large - 2px);
+        letter-spacing: 0.48px;
+      }
+    }
+  }
+  &.dkt-input--small {
+    height: @input-line-height-small;
+    line-height: @input-line-height-small;
+    font-size: @input-font-size-small;
+    .dkt-input__wrapper {
+      .dkt-input__inner {
+        line-height: calc(@input-line-height-small - 2px);
+        letter-spacing: 0.48px;
+      }
+    }
+  }
+  &.is-disabled {
+    cursor: not-allowed;
+    .dkt-input__wrapper {
+      background-color: #f5f7fa;
+      box-shadow: 0 0 0 1px #e4e7ed inset;
+      color: @input-placeholder-color;
+    }
+    .dkt-input__prepend {
+      background-color: #f5f7fa;
+      color: @input-placeholder-color;
+      box-shadow: 1px 0 0 0 #e4e7ed inset, 0 1px 0 0 #e4e7ed inset, 0 -1px 0 0 #e4e7ed inset;
+    }
+    .dkt-input__append {
+      background-color: #f5f7fa;
+      color: @input-placeholder-color;
+      box-shadow: -1px 0 0 0 #e4e7ed inset, 0 1px 0 0 #e4e7ed inset, 0 -1px 0 0 #e4e7ed inset;
+    }
+    .dkt-input__inner {
+      cursor: inherit;
+    }
+  }
+  .dkt-input__wrapper {
+    width: 100%;
+    box-shadow: 0 0 0 1px @input-border-color inset;
+    border-radius: @input-border-radius;
+    padding: @input-padding;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    box-sizing: border-box;
+    transition: box-shadow 0.25s ease-out;
+    &:hover {
+      box-shadow: 0 0 0 1px @input-border-active-color-light inset;
+    }
+    &.is-focused {
+      box-shadow: 0 0 0 1px @input-border-active-color inset;
+    }
+    .dkt-input__inner {
+      width: 100%;
+      font-family: inherit;
+      line-height: calc(@input-line-height - 2px);
+      font-size: inherit;
+      letter-spacing: 0.384px;
+      -webkit-appearance: none;
+      flex-grow: 1;
+      border: none;
+      background: none;
+      padding: 0;
+      outline: none;
+      box-sizing: border-box;
+      &::placeholder {
+        color: @input-placeholder-color;
+        font-size: inherit;
+      }
+    }
+    .dkt-input__prefix,
+    .dkt-input__suffix {
+      color: @primary-color;
+    }
+    .dkt-input__prefix {
+      margin-right: 10px;
+    }
+    .dkt-input__suffix {
+      display: inline-flex;
+      white-space: nowrap;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      height: 100%;
+      text-align: center;
+      transition: all @transition-time;
+      pointer-events: none;
+      .dkt-input__suffix--inner {
+        display: inline-flex;
+        pointer-events: all;
+        align-items: center;
+        justify-content: center;
+        &:first-child {
+          margin-left: 10px;
+        }
+        .dkt-input__count {
+          height: 100%;
+          display: inline-flex;
+          align-items: center;
+          font-size: 12px;
+          background-color: @primary-color-white;
+          .dkt-input__count-inner {
+            display: inline-block;
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  .dkt-input__prepend,
+  .dkt-input__append {
+    color: @primary-color;
+    border-radius: @input-border-radius;
+    background-color: @input-border-color-light;
+    padding: 20px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+  .dkt-input__prepend {
+    box-shadow: 1px 0 0 0 @input-border-color inset, 0 1px 0 0 @input-border-color inset,
+      0 -1px 0 0 @input-border-color inset;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .dkt-input__append {
+    box-shadow: -1px 0 0 0 @input-border-color inset, 0 1px 0 0 @input-border-color inset,
+      0 -1px 0 0 @input-border-color inset;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.dkt-textarea {
+  width: 100%;
+  font-family: @font-family;
+  display: inline-block;
+  position: relative;
+  .dkt-textarea__inner {
+    width: 100%;
+    border: none;
+    display: block;
+    font-family: inherit;
+    font-size: @input-font-size;
+    letter-spacing: 0.48px;
+    line-height: 24px;
+    min-height: 34px;
+    padding: 5px 11px;
+    background-image: none;
+    outline: none;
+    resize: vertical;
+    border-radius: @input-border-radius;
+    box-shadow: 0 0 0 1px @input-border-color inset;
+    transition: box-shadow 0.25s ease-out;
+    box-sizing: border-box;
+    &:hover {
+      box-shadow: 0 0 0 1px @input-border-active-color-light inset;
+    }
+    &:focus {
+      box-shadow: 0 0 0 1px @input-border-active-color inset;
+    }
+  }
+}
