@@ -1,7 +1,7 @@
 {
   "name": "dkt-plus",
   "private": false,
-  "version": "0.1.1-alpha.1",
+  "version": "0.1.2",
   "description": "Decathlon component library built in Vue3 with TypeScript.",
   "keywords": [
     "vue",
@@ -55,11 +55,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nio1023/dkt-plus.git"
+    "url": "git+https://github.com/dkt-plus/dkt-plus.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Nio1023/dkt-plus/issues"
+    "url": "https://github.com/dkt-plus/dkt-plus/issues"
   },
-  "homepage": "https://github.com/Nio1023/dkt-plus#readme"
+  "homepage": "https://github.com/dkt-plus/dkt-plus#readme"
 }
