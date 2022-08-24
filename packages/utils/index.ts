@@ -1,4 +1,6 @@
+export * from './dom'
 export * from './install'
 export * from './types'
 export * from './i18n'
 export * from './func'
+export * from './props'

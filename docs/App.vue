@@ -20,5 +20,6 @@
   ></dkt-input>
   {{ inputTest }}
   <dkt-button @click="isShowLimit = !isShowLimit">切换</dkt-button>
+  <dkt-icon></dkt-icon>
 </template>
 <style lang="less"></style>

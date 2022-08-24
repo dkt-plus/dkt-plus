@@ -26,7 +26,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "element-plus": "^2.2.8",
+    "@dkt-plus/icons-vue": "^1.0.0",
+    "@vueuse/core": "^9.1.1",
     "less": "^4.1.3",
     "lodash": "^4.17.21",
     "vue": "^3.2.25"
@@ -42,7 +43,7 @@
     "eslint-plugin-vue": "^9.1.1",
     "prettier": "^2.7.1",
     "ts-morph": "^15.1.0",
-    "typescript": "^4.5.4",
+    "typescript": "^4.7.4",
     "unplugin-vue-define-options": "^0.6.1",
     "unplugin-vue-macros": "^0.8.0",
     "vite": "^2.9.7",
