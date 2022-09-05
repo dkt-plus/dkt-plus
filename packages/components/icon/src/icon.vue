@@ -1,5 +1,7 @@
 <template>
-  <i v-bind="$attrs"></i>
+  <i v-bind="$attrs" :style="style">
+    <slot></slot>
+  </i>
 </template>
 <script setup lang="ts">
   import { computed } from 'vue'
@@ -17,7 +19,7 @@
     if (!props.size && !props.color) return {}
     return {
       fontSize: isUndefined(props.size) ? undefined : addUnit(props.size),
-      '--color': props.color
+      color: isUndefined(props.color) ? 'inherit' : props.color
     }
   })
 </script>
