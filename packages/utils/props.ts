@@ -1,8 +1,17 @@
-import { warn } from 'vue'
+import { warn,
+  ComponentPublicInstance,
+  ComponentInternalInstance, } from 'vue'
 import { fromPairs } from '@dkt-plus/utils'
 import { isObject } from './types'
 import { hasOwn } from './objects'
 import type { ExtractPropTypes, PropType } from 'vue'
+
+const iconProps = {
+  color: String,
+  size: [Number, String] as PropType<number | string>,
+} as const
+
+type Props = ExtractPropTypes<typeof iconProps>
 
 const wrapperKey = Symbol()
 export type PropWrapper<T> = { [wrapperKey]: T }
@@ -86,7 +95,7 @@ export function buildProp<
   C = never
 >(option: BuildPropOption<T, D, R, V, C>, key?: string): BuildPropReturn<T, D, R, V, C> {
   // filter native prop type and nested prop, e.g `null`, `undefined` (from `buildProps`)
-  if (!isObject(option) || !!option[propKey]) return option as any
+  if (!isObject(option) || !!option[(propKey as keyof typeof option)]) return option as any
 
   const { values, required, default: defaultValue, type, validator } = option
 
@@ -118,7 +127,7 @@ export function buildProp<
       : undefined
 
   const prop: any = {
-    type: isObject(type) && Object.getOwnPropertySymbols(type).includes(wrapperKey) ? type[wrapperKey] : type,
+    type: isObject(type) && Object.getOwnPropertySymbols(type).includes(wrapperKey) ? type[wrapperKey as any] : type,
     required: !!required,
     validator: _validator,
     [propKey]: true

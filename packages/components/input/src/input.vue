@@ -97,14 +97,15 @@
 
   type TargetElement = HTMLInputElement | HTMLTextAreaElement
 
-  interface InputEmits extends VmodelEvent {
+  interface InputEmits {
+    (e:"update:modelValue",value:string):void
     (e: 'input', value: string): void
     (e: 'compositionstart', event: CompositionEvent): void
     (e: 'compositionupdate', event: CompositionEvent): void
     (e: 'compositionend', event: CompositionEvent): void
     (e: 'focus', event: FocusEvent): void
     (e: 'blur', event: FocusEvent): void
-    (e: 'change', event: Event): void
+    (e: 'change', event: string): void
     (e: 'keydown', event: KeyboardEvent): void
     (e: 'mouseleave', event: MouseEvent): void
     (e: 'mouseenter', event: MouseEvent): void
